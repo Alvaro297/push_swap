@@ -11,7 +11,7 @@ size_t ft_strlen_push_swap(char **argv)
 	return (i);
 }
 
-static long  ft_atol(const char *nptr)
+long  ft_atol(const char *nptr)
 {
 	int		i;
 	int 	sign;

@@ -51,7 +51,7 @@ void	init_validations(t_node **a,char **nbrs)
 		n = ft_atol(nbrs[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			print_error(ERROR_3);
-		if (duplicate(*a, (int) n))
+		if (duplicate(*a, (int)n))
 			print_error(ERROR_2);
 		append_node(a, (int)n);
 		i++;
@@ -61,8 +61,7 @@ void	init_validations(t_node **a,char **nbrs)
 void	already_sorted(t_node *a)
 {
 	if (a == NULL || a->next == NULL)
-		return;
-
+		return ;
 	t_node *tmp;
 
 	tmp = a->next;
@@ -77,4 +76,17 @@ void	already_sorted(t_node *a)
 			return ;
 	}
 	print_info(INFO_1);
+}
+
+int		ft_stack_len(t_node *head)
+{
+	int	count;
+
+	count = 0;
+	while (head != NULL)
+	{
+		head = head->next;
+		count++;
+	}
+	return (count);
 }
