@@ -32,6 +32,13 @@ void	push_swap(char **argv);
 
 // ----- Append & modify ------//
 void	append_node(t_node **head, int n);
+void	push_x(t_node **stack_dest, t_node **stack_src, char c);
+void	rotates_swap(t_node **stack, char c);
+void	rotates_both(t_node **stack_a, t_node **stack_b);
+void	reverse_rotate_swap(t_node **stack, char c);
+void	reverse_rotate_both(t_node **stack_a, t_node **stack_b);
+void	swap_change(t_node **stack, char c);
+void	both_swap(t_node **stack_a, t_node **stack_b);
 
 // ----- Validations ----- //
 void	init_validations(t_node **a,char **nbrs);

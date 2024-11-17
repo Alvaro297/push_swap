@@ -4,8 +4,9 @@ void	swap_change(t_node **stack, char c)
 {
 	if (!(*stack) || !((*stack)->next))
 		return;
-
-	int tmp = (*stack)->number;
+	int tmp;
+	
+	tmp = (*stack)->number;
 	(*stack)->number = (*stack)->next->number;
 	(*stack)->next->number = tmp;
 
