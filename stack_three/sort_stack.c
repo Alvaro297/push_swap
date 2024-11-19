@@ -27,13 +27,59 @@ void	sort_three(t_node **stack)
 		reverse_rotate(stack, 'a'); // Case 4: 2 3 1 → 1 2 3
 }
 
-void	sort_five(t_node **stack_a, t_node **stack_b, int len_stack_a)
+void sort_four(t_node **stack_a, t_node **stack_b)
 {
-	while (len_stack_a -- > 3)
-	{
-		
-	}
+	// Encuentra el nodo con el valor mínimo y muévelo a stack_b
+	int	min_index; 
 	
+	min_index = find_min_index(*stack_a);
+	while ((*stack_a)->index != min_index)
+	{
+		min_index = find_min_index(*stack_a);
+		if (min_index <= 2)
+			rotate(stack_a, 'a');
+		else
+			reverse_rotate(stack_a, 'a');
+	}
+	push_x(stack_b, stack_a, 'b');
+	sort_three(stack_a);
+	push_x(stack_a, stack_b, 'a');
+}
+
+void sort_five(t_node **stack_a, t_node **stack_b)
+{
+	int min_index;
+	
+	min_index = find_min_index(*stack_a);
+	while ((*stack_a)->index != min_index)
+	{
+		min_index = find_min_index(*stack_a);
+		if (min_index <= 2)
+			rotates_swap(stack_a, 'a');
+		else
+			reverse_rotate_swap(stack_a, 'a');
+	}
+	push_x(stack_b, stack_a, 'b');
+	min_index = find_min_index(*stack_a);
+	while ((*stack_a)->index != min_index)
+	{
+		if (min_index <= 2)
+			rotates_swap(stack_a, 'a');
+		else
+			reverse_rotate_swap(stack_a, 'a');
+	}
+	push_x(stack_b, stack_a, 'b'); 
+	sort_three(stack_a);
+	push_x(stack_a, stack_b, 'a');
+	push_x(stack_a, stack_b, 'a');
+}
+
+void	sort_stack_few(t_node **stack_a, t_node **stack_b, int len_a)
+{
+	if (len_a == 5)
+		sort_five(stack_a, stack_b);
+	else
+		sort_four(stack_a, stack_b);
 }
 
 void	sort_stack(t_node **stack_a, t_node **stack_b)
@@ -41,8 +87,8 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 	int		len_a;
 
 	len_a = ft_stack_len(*stack_a);
-	if (len_a == 5)
-		sort_five(&stack_a, &stack_b, len_a);
+	if (len_a <= 5)
+		sort_stack_few(&stack_a, &stack_b, len_a);
 	else
 	{
 		while (len_a -- > 3)
@@ -53,5 +99,4 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 	{
 		init_values_stack(*stack_a, *stack_b);
 	}
-	
 }

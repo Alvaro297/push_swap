@@ -11,15 +11,12 @@ void	push_swap(char **argv)
 	init_validations(a, argv);
 	already_sorted(a);
 	size_stack = ft_stack_len(a);
-	if (size_stack < 4)
-	{
-		if (size_stack == 3)
-			sort_three(&a);
-		else if (size_stack == 2)
-			swap_change(&a, 'a');
-		else
-			sort_stack(&a, &b);
-	}
+	if (size_stack == 3)
+		sort_three(&a);
+	else if (size_stack == 2)
+		swap_change(&a, 'a');
+	else
+		sort_stack(&a, &b);
 	free(&a);
 }
 

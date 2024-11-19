@@ -20,7 +20,7 @@ typedef struct s_node {
 	int				number;
 	int				index;
 	int				push_cost;
-	bool			median;
+	bool			above_median;
 	bool			cheapest;
 	struct s_node	*target;
 	struct s_node	*next;
@@ -41,12 +41,13 @@ void	reverse_rotate_both(t_node **stack_a, t_node **stack_b);
 void	swap_change(t_node **stack, char c);
 void	both_swap(t_node **stack_a, t_node **stack_b);
 
-// ----- Validations ----- //
+// ----- Validations & Initializer ----- //
 void	init_validations(t_node **a,char **nbrs);
 void	already_sorted(t_node *a);
 int		duplicate(t_node *a, int n);
 void	are_all_numbers(int size, char **nbrs);
 int		ft_stack_len(t_node *head);
+void	init_values_stack(t_node *stack_a, t_node *stack_b);
 
 // ----- Prints ----- //
 void	print_error(char *message);

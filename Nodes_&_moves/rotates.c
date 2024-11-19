@@ -3,20 +3,24 @@
 void	rotates_swap(t_node **stack, char c)
 {
 	int		tmp;
+	int		tmp_index;
 	t_node	*current;
 
 	if (!(*stack) || !((*stack)->next))
 		return ;
 	
 	tmp = (*stack)->number;
+	tmp = (*stack)->index;
 	current = *stack;
 
 	while (current->next != NULL)
 	{
 		current->number = current->next->number;
+		current->index = current->next->index;
 		current = current->next;
 	}
 	current->number = tmp;
+	current->index = tmp_index;
 
 	if (c != 'r')
 		ft_printf("r%c\n", c);
@@ -32,6 +36,7 @@ void	rotates_both(t_node **stack_a, t_node **stack_b)
 void	reverse_rotate_swap(t_node **stack, char c)
 {
 	int		tmp;
+	int		tmp_index;
 	t_node	*current;
 
 	if (!(*stack) || !((*stack)->next))
@@ -42,12 +47,15 @@ void	reverse_rotate_swap(t_node **stack, char c)
 		current = current->next;
 
 	tmp = current->number;
+	tmp_index = current->index;
 	while (current->prev != NULL)
 	{
 		current->number = current->prev->number;
+		current->index = current->prev->index;
 		current = current->prev;
 	}
 	current->number = tmp;
+	current->index = tmp_index;
 
 	if (c != 'r')
 		ft_printf("rr%c\n", c);

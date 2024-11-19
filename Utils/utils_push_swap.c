@@ -37,3 +37,43 @@ long  ft_atol(const char *nptr)
 	}
 	return (nbr * sign);
 }
+
+t_node	*find_smallest(t_node *stack)
+{
+	long	i;
+	t_node	*current;
+	t_node	*min_stack;
+
+	current = stack;
+	while (current != NULL)
+	{
+		if (current < i)
+		{
+			i = current -> number;
+			min_stack = current;
+		}
+		current = current -> next;
+	}
+	return (min_stack);
+}
+
+int find_min_index(t_node *stack)
+{
+	int min_index; 
+	int min_value;
+	t_node *current; 
+	
+	min_value = stack->number;
+	current = stack->next;
+	min_index = stack->index;
+	while (current != NULL)
+	{
+		if (current->number < min_value)
+		{
+			min_value = current->number;
+			min_index = current->index;
+		}
+		current = current->next;
+	}
+	return (min_index);
+}

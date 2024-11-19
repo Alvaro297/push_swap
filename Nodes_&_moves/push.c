@@ -15,7 +15,7 @@ void push_x(t_node **stack_src, t_node **stack_dest, char c)
 	ft_printf("p%c\n", c);
 }
 
-static void set_current_position(t_node *stack_dest, t_node *stack_src)
+void	set_current_position(t_node *stack_dest, t_node *stack_src)
 {
 	int i;
 	t_node *current;
@@ -28,7 +28,6 @@ static void set_current_position(t_node *stack_dest, t_node *stack_src)
 		i++;
 		current = current->next;
 	}
-
 	i = 0;
 	current = stack_src;
 	while (current != NULL)
