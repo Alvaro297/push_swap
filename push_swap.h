@@ -2,6 +2,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "ft_printf_git/ft_printf.h"
 # include <stdarg.h>
 # include <limits.h>
 # include <stdio.h>
@@ -45,6 +46,7 @@ void	init_validations(t_node **a,char **nbrs);
 void	already_sorted(t_node *a);
 int		duplicate(t_node *a, int n);
 void	are_all_numbers(int size, char **nbrs);
+int		ft_stack_len(t_node *head);
 
 // ----- Prints ----- //
 void	print_error(char *message);

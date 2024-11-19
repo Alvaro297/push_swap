@@ -14,11 +14,11 @@ void	push_swap(char **argv)
 	if (size_stack < 4)
 	{
 		if (size_stack == 3)
-			swap_change(&a, "a");
+			sort_three(&a);
 		else if (size_stack == 2)
-			//Function
+			swap_change(&a, 'a');
 		else
-			//Function
+			sort_stack(&a, &b);
 	}
 	free(&a);
 }

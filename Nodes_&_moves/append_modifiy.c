@@ -12,7 +12,7 @@ void	append_node(t_node **head, int n)
 	new_node->number = n;
 	new_node->index = cursor++;
 	new_node->push_cost = 0;
-	new_node->median = false;
+	new_node->above_median = false;
 	new_node->cheapest = false;
 	new_node->target = NULL;
 	new_node->next = NULL;
