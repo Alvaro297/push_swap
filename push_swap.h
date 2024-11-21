@@ -58,9 +58,12 @@ int		duplicate(t_node *a, int n);
 void	are_all_numbers(int size, char **nbrs);
 int		ft_stack_len(t_node *head);
 void	init_values_stack(t_node *stack_a, t_node *stack_b);
+void	set_cheapest(t_node *stack);
 t_node	*ischeapest(t_node	*stack);
 void	move_values(t_node **stack_a, t_node **stack_b);
 void	finish_rotation(t_node **stack, char stack_name);
+void	smallest_to_top(t_node *stack);
+
 // ----- Prints ----- //
 void	print_error(char *message);
 void	print_info(char *message);

@@ -81,12 +81,14 @@ bool	already_sorted(t_node *a)
 
 int		ft_stack_len(t_node *head)
 {
-	int	count;
+	t_node	*current;
+	int		count;
 
 	count = 0;
-	while (head != NULL)
+	current = head;
+	while (current != NULL)
 	{
-		head = head->next;
+		current = current->next;
 		count++;
 	}
 	return (count);

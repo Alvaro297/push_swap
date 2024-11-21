@@ -78,18 +78,19 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 
 	len_a = ft_stack_len(*stack_a);
 	if (len_a <= 5)
-		sort_stack_few(&stack_a, &stack_b, len_a);
+		sort_stack_few(stack_a, stack_b, len_a);
 	else
 	{
 		while (len_a -- > 3 && !already_sorted(*stack_a))
-			push_x(&stack_b, &stack_a, 'b');
+			push_x(stack_b, stack_a, 'b');
 	}
 	if (len_a == 3)
 		sort_three(&stack_a);
-	while (*stack_b)
+	while (*stack_b != NULL)
 	{
 		init_values_stack(*stack_a, *stack_b);
 		move_values(stack_a, stack_b);
 	}
-	
+	free(stack_b);
+	smallest_to_top(stack_a);
 }

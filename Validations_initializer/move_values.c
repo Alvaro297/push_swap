@@ -1,5 +1,25 @@
 #include "../push_swap.h"
 
+void	set_cheapest(t_node *stack)
+{
+	long			best_match_value;
+	t_node	*best_match_node;
+
+	if (NULL == stack)
+		return ;
+	best_match_value = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push_cost < best_match_value)
+		{
+			best_match_value = stack->push_cost;
+			best_match_node = stack;
+		}
+		stack = stack->next;
+	}
+	best_match_node->cheapest = true;
+}
+
 t_node		*ischeapest(t_node	*stack)
 {
 	t_node	*current;
@@ -8,9 +28,7 @@ t_node		*ischeapest(t_node	*stack)
 	while (current != NULL)
 	{
 		if (current ->cheapest)
-		{
 			return (current);
-		}
 		current = current -> next;
 	}
 	return (NULL);
@@ -49,7 +67,7 @@ void	finish_rotation(t_node **stack, char stack_name)
 
 	if (stack_name == 'b')
 		top_node = ischeapest(*stack);
-	else
+	else if (stack_name == 'a')
 		top_node = ischeapest(*stack) -> target;
 	while (*stack != top_node)
 	{
@@ -59,7 +77,7 @@ void	finish_rotation(t_node **stack, char stack_name)
 			reverse_rotates_swap(stack, stack_name);
 		if (stack_name == 'b')
 			top_node = ischeapest(*stack);
-		else
+		else if (stack_name == 'a')
 			top_node = ischeapest(*stack) -> target;
 	}
 }

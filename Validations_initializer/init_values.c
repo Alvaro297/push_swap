@@ -32,10 +32,10 @@ void	get_target_node(t_node *stack_a, t_node *stack_b)
 	long	i;
 	t_node	*current;
 
-	i = LONG_MAX;
-	current = stack_a;
 	while (stack_b != NULL)
 	{
+		i = LONG_MAX;
+		current = stack_a;
 		while (current != NULL)
 		{
 			if ((current -> number > stack_b -> number) 
@@ -63,29 +63,32 @@ t_node	*get_minimum_value(t_node	*stack_x)
 	while (current != NULL)
 	{
 		if (current -> number < i)
+		{
+			i = current->number;
 			minvalue = current;
+		}
 		current = current -> next;
 	}
 	return (minvalue);
 }
 
-void	set_pricecost(t_node *a, t_node *b)
+void	set_pricecost(t_node *stack_a, t_node *stack_b)
 {
 	int	len_a;
 	int	len_b;
 
-	len_a = stack_len(a);
-	len_b = stack_len(b);
-	while (b)
+	len_a = stack_len(stack_a);
+	len_b = stack_len(stack_b);
+	while (stack_b)
 	{
-		b->push_cost = b->index;
-		if (!(b->above_median))
-			b->push_cost = len_b - (b->index);
-		if (b->target->above_median)
-			b->push_cost += b->target->index;
+		stack_b->push_cost = stack_b->index;
+		if (!(stack_b->above_median))
+			stack_b->push_cost = len_b - (stack_b->index);
+		if (stack_b->target->above_median)
+			stack_b->push_cost += stack_b->target->index;
 		else
-			b->push_cost += len_a - (b->target->index);
-		b = b->next;
+			stack_b->push_cost += len_a - stack_b->target->index;
+		stack_b = stack_b->next;
 	}
 }
 
@@ -94,5 +97,5 @@ void	init_values_stack(t_node *stack_a, t_node *stack_b)
 	medianvalue(stack_a, stack_b);
 	get_target_node(stack_a, stack_b);
 	set_pricecost(stack_a, stack_b);
-	get_cheapest_cost(stack_a, stack_b);
+	set_cheapest(stack_b);
 }
