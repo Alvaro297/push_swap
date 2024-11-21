@@ -53,7 +53,7 @@ void	sort_stack(t_node **stack_a, t_node **stack_b);
 
 // ----- Validations & Initializer ----- //
 void	init_validations(t_node **a,char **nbrs);
-void	already_sorted(t_node *a);
+bool	already_sorted(t_node *a);
 int		duplicate(t_node *a, int n);
 void	are_all_numbers(int size, char **nbrs);
 int		ft_stack_len(t_node *head);

@@ -9,14 +9,18 @@ void	push_swap(char **argv)
 	a = NULL;
 	b = NULL; 
 	init_validations(a, argv);
-	already_sorted(a);
-	size_stack = ft_stack_len(a);
-	if (size_stack == 3)
-		sort_three(&a);
-	else if (size_stack == 2)
-		swap_change(&a, 'a');
+	if (already_sorted(a))
+		print_info(INFO_1);
 	else
-		sort_stack(&a, &b);
+	{
+		size_stack = ft_stack_len(a);
+		if (size_stack == 3)
+			sort_three(&a);
+		else if (size_stack == 2)
+			swap_change(&a, 'a');
+		else
+			sort_stack(&a, &b);
+	}
 	free(&a);
 }
 

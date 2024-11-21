@@ -41,7 +41,6 @@ void move_nodes(t_node **a, t_node **b)
 	finish_rotation(b, cheapest_node -> number, 'b');
 	finish_rotation(a, cheapest_node -> target -> number, 'a');
 	push_x(a, b, 'a');
-	set_current_position(*a, *b);
 }
 
 void	finish_rotation(t_node **stack, int cheapest_value, char stack_name)
@@ -79,6 +78,5 @@ t_node	*get_number_cheapest_node(t_node *stack, int cheapest_value)
 			return (current);
 		current = current -> next; 
 	}
-	print_error(ERROR_4);
 	return (NULL);
 }

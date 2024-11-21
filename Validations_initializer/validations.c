@@ -58,7 +58,7 @@ void	init_validations(t_node **a,char **nbrs)
 	}
 }
 
-void	already_sorted(t_node *a)
+bool	already_sorted(t_node *a)
 {
 	if (a == NULL || a->next == NULL)
 		return ;
@@ -73,9 +73,10 @@ void	already_sorted(t_node *a)
 			tmp = tmp->next;
 		}
 		else
-			return ;
+			return (false);
 	}
 	print_info(INFO_1);
+	return (true);
 }
 
 int		ft_stack_len(t_node *head)
