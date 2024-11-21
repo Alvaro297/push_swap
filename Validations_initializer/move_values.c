@@ -19,36 +19,28 @@ t_node		*ischeapest(t_node	*stack)
 void	move_values(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*cheapest;
+	int		cheapest_number;
+	int		target_number;
 
 	cheapest = ischeapest(*stack_b);
+	cheapest_number = cheapest->number;
+	target_number = cheapest->target->number;
 	if (cheapest->above_median && cheapest->target->above_median)
-		rotate_all(stack_a, stack_b, cheapest->number, cheapest->target->number);
+	{
+		while ((*stack_a) -> number != target_number
+				&& (*stack_b) -> number != cheapest_number)
+				rotate_both(stack_a, stack_b);
+	}
 	else if (!(cheapest->above_median)
 			&& !(cheapest->target->above_median))
-		reverse_rotate_all(stack_a, stack_b, cheapest->number, cheapest->target->number);
+			{
+				while ((*stack_a) -> number != target_number
+					&& (*stack_b) -> number != cheapest_number)
+					reverse_rotate_both(stack_a, stack_b);
+			}
 	finish_rotation(stack_b, 'b');
 	finish_rotation(stack_a, 'a');
 	push_x(stack_b, stack_a, 'a');
-}
-
-static void	rotate_all(t_node **stack_a,
-						t_node **stack_b,
-						int cheapest_number,
-						int target_number)
-{
-	while ((*stack_a) -> number != target_number
-		&& (*stack_b) -> number != cheapest_number)
-		rotate_both(stack_a, stack_b);
-}
-
-static void	reverse_rotate_all(t_node **stack_a,
-								t_node **stack_b,
-								int cheapest_number,
-								int target_number)
-{
-	while ((*stack_a) -> number != target_number
-		&& (*stack_b) -> number != cheapest_number)
-		reverse_rotate_both(stack_a, stack_b);
 }
 
 void	finish_rotation(t_node **stack, char stack_name)
