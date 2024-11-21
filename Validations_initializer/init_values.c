@@ -27,7 +27,7 @@ void	medianvalue(t_node *stack_a, t_node *stack_b)
 	}
 }
 
-static void	get_target_node(t_node *stack_a, t_node *stack_b)
+void	get_target_node(t_node *stack_a, t_node *stack_b)
 {
 	long	i;
 	t_node	*current;

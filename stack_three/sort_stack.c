@@ -29,14 +29,9 @@ void	sort_three(t_node **stack)
 
 void sort_four(t_node **stack_a, t_node **stack_b)
 {
-	// Encuentra el nodo con el valor mínimo y muévelo a stack_b
-	int	min_index; 
-	
-	min_index = find_min_index(*stack_a);
-	while ((*stack_a)->index != min_index)
+	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
-		min_index = find_min_index(*stack_a);
-		if (min_index <= 2)
+		if (find_min_index(*stack_a) <= 2)
 			rotate(stack_a, 'a');
 		else
 			reverse_rotate(stack_a, 'a');
@@ -48,22 +43,17 @@ void sort_four(t_node **stack_a, t_node **stack_b)
 
 void sort_five(t_node **stack_a, t_node **stack_b)
 {
-	int min_index;
-	
-	min_index = find_min_index(*stack_a);
-	while ((*stack_a)->index != min_index)
+	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
-		min_index = find_min_index(*stack_a);
-		if (min_index <= 2)
+		if (find_min_index(*stack_a) <= 2)
 			rotates_swap(stack_a, 'a');
 		else
 			reverse_rotate_swap(stack_a, 'a');
 	}
 	push_x(stack_b, stack_a, 'b');
-	min_index = find_min_index(*stack_a);
-	while ((*stack_a)->index != min_index)
+	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
-		if (min_index <= 2)
+		if (find_min_index(*stack_a) <= 2)
 			rotates_swap(stack_a, 'a');
 		else
 			reverse_rotate_swap(stack_a, 'a');

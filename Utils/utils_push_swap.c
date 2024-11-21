@@ -57,7 +57,7 @@ t_node	*find_smallest(t_node *stack)
 	return (min_stack);
 }
 
-int find_min_index(t_node *stack)
+int		find_min_index(t_node *stack)
 {
 	int min_index; 
 	int min_value;

@@ -2,14 +2,25 @@
 
 void	swap_change(t_node **stack, char c)
 {
+	t_node	*tmp_target;
+	int		tmp_number;
+	bool	tmp_cheapest;
+	int		tmp_push_cost;
+
 	if (!(*stack) || !((*stack)->next))
 		return;
-	int tmp;
-	
-	tmp = (*stack)->number;
+	tmp_number = (*stack)->number;
+	tmp_target = (*stack)->target;
+	tmp_cheapest = (*stack)->cheapest;
+	tmp_push_cost = (*stack)->push_cost;
 	(*stack)->number = (*stack)->next->number;
-	(*stack)->next->number = tmp;
-
+	(*stack)->push_cost = (*stack)->next->push_cost;
+	(*stack)->target = (*stack)->next->target;
+	(*stack)->cheapest = (*stack)->next->cheapest;
+	(*stack)->next->number = tmp_number;
+	(*stack)->next->push_cost = tmp_push_cost;
+	(*stack)->next->target = tmp_target;
+	(*stack)->next->cheapest = tmp_cheapest;
 	if (c != 's')
 		ft_printf("s%c\n", c);
 }

@@ -34,12 +34,22 @@ void	push_swap(char **argv);
 // ----- Append & modify ------//
 void	append_node(t_node **head, int n);
 void	push_x(t_node **stack_dest, t_node **stack_src, char c);
+void	set_current_position(t_node *stack_dest, t_node *stack_src);
 void	rotates_swap(t_node **stack, char c);
 void	rotates_both(t_node **stack_a, t_node **stack_b);
 void	reverse_rotate_swap(t_node **stack, char c);
 void	reverse_rotate_both(t_node **stack_a, t_node **stack_b);
 void	swap_change(t_node **stack, char c);
 void	both_swap(t_node **stack_a, t_node **stack_b);
+void	set_values(t_node *stack, int i);
+void	set_final_values(t_node *stack,t_node *first_target ,bool first_cheapest, int first_push_cost);
+
+// ----- Stack three ------//
+void	sort_three(t_node **stack);
+void	sort_four(t_node **stack_a, t_node **stack_b);
+void	sort_five(t_node **stack_a, t_node **stack_b);
+void	sort_stack_few(t_node **stack_a, t_node **stack_b, int len_a);
+void	sort_stack(t_node **stack_a, t_node **stack_b);
 
 // ----- Validations & Initializer ----- //
 void	init_validations(t_node **a,char **nbrs);
@@ -55,5 +65,7 @@ void	print_info(char *message);
 
 // ----- Utils ----- //
 size_t	ft_strlen_push_swap(char **argv);
-long  ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
+t_node	*find_smallest(t_node *stack);
+int		find_min_index(t_node *stack);
 #endif

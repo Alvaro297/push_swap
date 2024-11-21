@@ -2,26 +2,26 @@
 
 void	rotates_swap(t_node **stack, char c)
 {
-	int		tmp;
-	int		tmp_index;
 	t_node	*current;
+	t_node *first_target;
+	int		first_number;
+	bool	first_cheapest;
+	int		first_push_cost;
 
 	if (!(*stack) || !((*stack)->next))
 		return ;
-	
-	tmp = (*stack)->number;
-	tmp = (*stack)->index;
 	current = *stack;
-
+	first_number = current->number;
+	first_target = current->target;
+	first_cheapest = current->cheapest;
+	first_push_cost = current->push_cost;
 	while (current->next != NULL)
 	{
-		current->number = current->next->number;
-		current->index = current->next->index;
+		set_values(current, 1);
 		current = current->next;
 	}
-	current->number = tmp;
-	current->index = tmp_index;
-
+	current->number = first_number;
+	set_final_values(current, first_target, first_cheapest, first_push_cost);
 	if (c != 'r')
 		ft_printf("r%c\n", c);
 }
@@ -35,28 +35,28 @@ void	rotates_both(t_node **stack_a, t_node **stack_b)
 
 void	reverse_rotate_swap(t_node **stack, char c)
 {
-	int		tmp;
-	int		tmp_index;
 	t_node	*current;
+	t_node	*first_target;
+	int		first_number;
+	bool	first_cheapest;
+	int		first_push_cost;
 
 	if (!(*stack) || !((*stack)->next))
 		return ;
-
 	current = *stack;
 	while (current->next != NULL)
 		current = current->next;
-
-	tmp = current->number;
-	tmp_index = current->index;
+	first_number = current->number;
+	first_target = current->target;
+	first_cheapest = current->cheapest;
+	first_push_cost = current->push_cost;
 	while (current->prev != NULL)
 	{
-		current->number = current->prev->number;
-		current->index = current->prev->index;
+		set_values(current, 2);
 		current = current->prev;
 	}
-	current->number = tmp;
-	current->index = tmp_index;
-
+	current->number = first_number;
+	set_final_values(current, first_target, first_cheapest, first_push_cost);
 	if (c != 'r')
 		ft_printf("rr%c\n", c);
 }
