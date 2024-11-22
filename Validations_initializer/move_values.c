@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_values.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:17 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:17 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	set_cheapest(t_node *stack)
 {
-	long			best_match_value;
+	long	best_match_value;
 	t_node	*best_match_node;
 
 	if (NULL == stack)
@@ -20,7 +32,7 @@ void	set_cheapest(t_node *stack)
 	best_match_node->cheapest = true;
 }
 
-t_node		*ischeapest(t_node	*stack)
+t_node	*ischeapest(t_node	*stack)
 {
 	t_node	*current;
 
@@ -45,17 +57,17 @@ void	move_values(t_node **stack_a, t_node **stack_b)
 	target_number = cheapest->target->number;
 	if (cheapest->above_median && cheapest->target->above_median)
 	{
-		while ((*stack_a) -> number != target_number
-				&& (*stack_b) -> number != cheapest_number)
-				rotate_both(stack_a, stack_b);
+		while ((*stack_a)-> number != target_number
+			&& (*stack_b)-> number != cheapest_number)
+			rotate_both(stack_a, stack_b);
 	}
 	else if (!(cheapest->above_median)
-			&& !(cheapest->target->above_median))
-			{
-				while ((*stack_a) -> number != target_number
-					&& (*stack_b) -> number != cheapest_number)
-					reverse_rotate_both(stack_a, stack_b);
-			}
+		&& !(cheapest->target->above_median))
+	{
+		while ((*stack_a)-> number != target_number
+			&& (*stack_b)-> number != cheapest_number)
+			reverse_rotate_both(stack_a, stack_b);
+	}
 	finish_rotation(stack_b, 'b');
 	finish_rotation(stack_a, 'a');
 	push_x(stack_b, stack_a, 'a');
@@ -68,7 +80,7 @@ void	finish_rotation(t_node **stack, char stack_name)
 	if (stack_name == 'b')
 		top_node = ischeapest(*stack);
 	else if (stack_name == 'a')
-		top_node = ischeapest(*stack) -> target;
+		top_node = ischeapest(*stack)-> target;
 	while (*stack != top_node)
 	{
 		if (top_node->above_median)
@@ -78,6 +90,6 @@ void	finish_rotation(t_node **stack, char stack_name)
 		if (stack_name == 'b')
 			top_node = ischeapest(*stack);
 		else if (stack_name == 'a')
-			top_node = ischeapest(*stack) -> target;
+			top_node = ischeapest(*stack)-> target;
 	}
 }

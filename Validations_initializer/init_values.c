@@ -1,8 +1,20 @@
-# include "../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_values.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:06 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:06 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
 
 void	medianvalue(t_node *stack_a, t_node *stack_b)
 {
-	int	len;
+	int		len;
 	t_node	*current;
 
 	len = ft_stack_len(stack_a);
@@ -38,11 +50,11 @@ void	get_target_node(t_node *stack_a, t_node *stack_b)
 		current = stack_a;
 		while (current != NULL)
 		{
-			if ((current -> number > stack_b -> number) 
-				&& i > current -> number - stack_b -> number)
+			if ((current -> number > stack_b -> number)
+				&& (i > current -> number - stack_b -> number))
 			{
 				i = current -> number - stack_b -> number;
-				stack_b -> target = current; 
+				stack_b -> target = current;
 			}
 			current = current -> next;
 		}

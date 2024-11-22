@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:43 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:43 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	sort_three(t_node **stack)
@@ -10,24 +22,24 @@ void	sort_three(t_node **stack)
 	b = (*stack)->next->number;
 	c = (*stack)->next->next->number;
 	if (a > b && b < c && a < c)
-		swap_change(stack, 'a'); // Case 1: 2 1 3 → 1 2 3
+		swap_change(stack, 'a');
 	else if (a > b && b > c)
 	{
-		swap_change(stack, 'a'); // Case 2: 3 2 1 → 2 3 1
+		swap_change(stack, 'a');
 		reverse_rotate(stack, 'a');
 	}
 	else if (a > b && b < c && a > c)
-		rotate(stack, 'a'); // Case 3: 3 1 2 → 1 2 3
+		rotate(stack, 'a');
 	else if (a < b && b > c && a < c)
 	{
-		swap_change(stack, 'a'); // Case 5: 1 3 2 → 3 1 2
+		swap_change(stack, 'a');
 		rotate(stack, 'a');
 	}
 	else if (a < b && b > c && a > c)
-		reverse_rotate(stack, 'a'); // Case 4: 2 3 1 → 1 2 3
+		reverse_rotate(stack, 'a');
 }
 
-void sort_four(t_node **stack_a, t_node **stack_b)
+void	sort_four(t_node **stack_a, t_node **stack_b)
 {
 	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
@@ -41,7 +53,7 @@ void sort_four(t_node **stack_a, t_node **stack_b)
 	push_x(stack_a, stack_b, 'a');
 }
 
-void sort_five(t_node **stack_a, t_node **stack_b)
+void	sort_five(t_node **stack_a, t_node **stack_b)
 {
 	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
@@ -58,7 +70,7 @@ void sort_five(t_node **stack_a, t_node **stack_b)
 		else
 			reverse_rotate_swap(stack_a, 'a');
 	}
-	push_x(stack_b, stack_a, 'b'); 
+	push_x(stack_b, stack_a, 'b');
 	sort_three(stack_a);
 	push_x(stack_a, stack_b, 'a');
 	push_x(stack_a, stack_b, 'a');

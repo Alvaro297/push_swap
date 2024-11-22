@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_values.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:49:07 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:49:07 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	set_values(t_node *stack, int i)
@@ -18,7 +30,8 @@ void	set_values(t_node *stack, int i)
 	}
 }
 
-void	set_final_values(t_node *stack,t_node *first_target ,bool first_cheapest, int first_push_cost)
+void	set_final_values(t_node *stack, t_node *first_target,
+		bool first_cheapest, int first_push_cost)
 {
 	stack->target = first_target;
 	stack->cheapest = first_cheapest;

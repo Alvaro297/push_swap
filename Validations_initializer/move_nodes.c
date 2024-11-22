@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_nodes.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:12 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:12 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	set_cheapest(t_node *b)
 {
-	long			best_match_value;
+	long		best_match_value;
 	t_node		*best_match_node;
 
 	if (NULL == b)

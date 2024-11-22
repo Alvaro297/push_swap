@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   append_modifiy.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:51 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:51 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	append_node(t_node **head, int n)
@@ -20,7 +32,7 @@ void	append_node(t_node **head, int n)
 	if (*head == NULL)
 	{
 		*head = new_node;
-		return;
+		return ;
 	}
 	last = *head;
 	while (last->next != NULL)
@@ -28,4 +40,3 @@ void	append_node(t_node **head, int n)
 	last->next = new_node;
 	new_node->prev = last;
 }
-

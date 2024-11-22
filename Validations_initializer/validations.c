@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validations.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:29 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:29 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	are_all_numbers(int size, char **nbrs)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i <= size)
@@ -24,9 +36,9 @@ void	are_all_numbers(int size, char **nbrs)
 	}
 }
 
-int		duplicate(t_node *a, int n)
+int	duplicate(t_node *a, int n)
 {
-	if (!a) //Check for an empty stack
+	if (!a)
 		print_error (ERROR_4);
 	while (a != NULL)
 	{
@@ -37,9 +49,9 @@ int		duplicate(t_node *a, int n)
 	return (1);
 }
 
-void	init_validations(t_node **a,char **nbrs)
+void	init_validations(t_node **a, char **nbrs)
 {
-	size_t len;
+	size_t	len;
 	long	n;
 	int		i;
 
@@ -60,10 +72,10 @@ void	init_validations(t_node **a,char **nbrs)
 
 bool	already_sorted(t_node *a)
 {
+	t_node	*tmp;
+
 	if (a == NULL || a->next == NULL)
 		return ;
-	t_node *tmp;
-
 	tmp = a->next;
 	while (tmp->next != NULL)
 	{
@@ -79,7 +91,7 @@ bool	already_sorted(t_node *a)
 	return (true);
 }
 
-int		ft_stack_len(t_node *head)
+int	ft_stack_len(t_node *head)
 {
 	t_node	*current;
 	int		count;

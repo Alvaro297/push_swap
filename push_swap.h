@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:45:15 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:45:15 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf_git/ft_printf.h"
+# include "ft_printf/ft_printf.h"
+# include "libft_entrega/libft.h"
 # include <stdarg.h>
 # include <limits.h>
 # include <stdio.h>
@@ -16,7 +28,8 @@
 # define ERROR_4 "Error: No numbers in the arguments"
 # define INFO_1 "Info: It's already sorted"
 
-typedef struct s_node {
+typedef struct s_node
+{
 	int				number;
 	int				index;
 	int				push_cost;
@@ -25,7 +38,7 @@ typedef struct s_node {
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
-} t_node;
+}	t_node;
 
 // ----- Push_swap -----//
 int		main(int argc, char **argv);
@@ -42,17 +55,16 @@ void	reverse_rotate_both(t_node **stack_a, t_node **stack_b);
 void	swap_change(t_node **stack, char c);
 void	both_swap(t_node **stack_a, t_node **stack_b);
 void	set_values(t_node *stack, int i);
-void	set_final_values(t_node *stack,t_node *first_target ,bool first_cheapest, int first_push_cost);
-
+void	set_final_values(t_node *stack, t_node *first_target,
+			bool first_cheapest, int first_push_cost);
 // ----- Stack three ------//
 void	sort_three(t_node **stack);
 void	sort_four(t_node **stack_a, t_node **stack_b);
 void	sort_five(t_node **stack_a, t_node **stack_b);
 void	sort_stack_few(t_node **stack_a, t_node **stack_b, int len_a);
 void	sort_stack(t_node **stack_a, t_node **stack_b);
-
 // ----- Validations & Initializer ----- //
-void	init_validations(t_node **a,char **nbrs);
+void	init_validations(t_node **a, char **nbrs);
 bool	already_sorted(t_node *a);
 int		duplicate(t_node *a, int n);
 void	are_all_numbers(int size, char **nbrs);

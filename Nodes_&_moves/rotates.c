@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotates.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:49:02 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:49:02 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	rotates_swap(t_node **stack, char c)
 {
 	t_node	*current;
-	t_node *first_target;
+	t_node	*first_target;
 	int		first_number;
 	bool	first_cheapest;
 	int		first_push_cost;

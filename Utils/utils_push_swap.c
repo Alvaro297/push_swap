@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_push_swap.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:48:36 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:48:36 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-size_t ft_strlen_push_swap(char **argv)
+size_t	ft_strlen_push_swap(char **argv)
 {
-	size_t i = 0;
+	size_t	i;
 
+	i = 0;
 	while (argv[i] != NULL)
 	{
 		i++;
@@ -11,10 +24,10 @@ size_t ft_strlen_push_swap(char **argv)
 	return (i);
 }
 
-long  ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	int		i;
-	int 	sign;
+	int		sign;
 	long	nbr;
 
 	i = 0;
@@ -57,12 +70,12 @@ t_node	*find_smallest(t_node *stack)
 	return (min_stack);
 }
 
-int		find_min_index(t_node *stack)
+int	find_min_index(t_node *stack)
 {
-	int min_index; 
-	int min_value;
-	t_node *current; 
-	
+	int		min_index;
+	int		min_value;
+	t_node	*current;
+
 	min_value = stack->number;
 	current = stack->next;
 	min_index = stack->index;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Swaps.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvamart <alvamart@student.42madrid.com>   #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024-11-22 11:49:14 by alvamart          #+#    #+#             */
+/*   Updated: 2024-11-22 11:49:14 by alvamart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	swap_change(t_node **stack, char c)
@@ -8,7 +20,7 @@ void	swap_change(t_node **stack, char c)
 	int		tmp_push_cost;
 
 	if (!(*stack) || !((*stack)->next))
-		return;
+		return ;
 	tmp_number = (*stack)->number;
 	tmp_target = (*stack)->target;
 	tmp_cheapest = (*stack)->cheapest;
