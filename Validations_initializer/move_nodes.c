@@ -41,8 +41,8 @@ void	smallest_to_top(t_node *stack)
 	smallest_number = smallest -> number;
 	if (smallest -> above_median)
 		while (stack ->number != smallest_number)
-			rotate_swap(stack, 'a');
+			rotates_swap(&stack, 'a');
 	else
 		while (stack ->number != smallest_number)
-			reverse_rotate_swap(stack, 'a');
+			reverse_rotate_swap(&stack, 'a');
 }

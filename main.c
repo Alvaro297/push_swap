@@ -20,7 +20,7 @@ void	push_swap(char **argv)
 
 	a = NULL;
 	b = NULL;
-	init_validations(a, argv);
+	init_validations(&a, argv);
 	if (already_sorted(a))
 		print_info(INFO_1);
 	else
@@ -33,14 +33,14 @@ void	push_swap(char **argv)
 		else
 			sort_stack(&a, &b);
 	}
-	free(&a);
+	free_all(&a);
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc >= 2)
 	{
-		*argv++;
+		argv++;
 		if (argc == 2)
 			argv = ft_split(*argv, ' ');
 		push_swap(argv);

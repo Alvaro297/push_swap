@@ -12,26 +12,6 @@
 
 #include "../push_swap.h"
 
-void	set_cheapest(t_node *stack)
-{
-	long	best_match_value;
-	t_node	*best_match_node;
-
-	if (NULL == stack)
-		return ;
-	best_match_value = LONG_MAX;
-	while (stack)
-	{
-		if (stack->push_cost < best_match_value)
-		{
-			best_match_value = stack->push_cost;
-			best_match_node = stack;
-		}
-		stack = stack->next;
-	}
-	best_match_node->cheapest = true;
-}
-
 t_node	*ischeapest(t_node	*stack)
 {
 	t_node	*current;
@@ -59,7 +39,7 @@ void	move_values(t_node **stack_a, t_node **stack_b)
 	{
 		while ((*stack_a)-> number != target_number
 			&& (*stack_b)-> number != cheapest_number)
-			rotate_both(stack_a, stack_b);
+			rotates_both(stack_a, stack_b);
 	}
 	else if (!(cheapest->above_median)
 		&& !(cheapest->target->above_median))
@@ -79,17 +59,17 @@ void	finish_rotation(t_node **stack, char stack_name)
 
 	if (stack_name == 'b')
 		top_node = ischeapest(*stack);
-	else if (stack_name == 'a')
+	else
 		top_node = ischeapest(*stack)-> target;
 	while (*stack != top_node)
 	{
 		if (top_node->above_median)
 			rotates_swap(stack, stack_name);
 		else
-			reverse_rotates_swap(stack, stack_name);
+			reverse_rotate_swap(stack, stack_name);
 		if (stack_name == 'b')
 			top_node = ischeapest(*stack);
-		else if (stack_name == 'a')
+		else
 			top_node = ischeapest(*stack)-> target;
 	}
 }

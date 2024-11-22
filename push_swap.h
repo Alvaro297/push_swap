@@ -13,19 +13,19 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/ft_printf.h"
 # include "libft_entrega/libft.h"
+# include "ft_printf/ft_printf.h"
 # include <stdarg.h>
+# include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
 # include <stdbool.h>
 # include <unistd.h>
 
-# define ERROR_0 "Error: Missing arguments"
-# define ERROR_1 "Error: Argument is not an integer"
-# define ERROR_2 "Error: Duplicate numbers"
-# define ERROR_3 "Error: Numbers greater than integer"
-# define ERROR_4 "Error: No numbers in the arguments"
+# define ERROR_0 "Missing arguments"
+# define ERROR_1 "Argument is not an integer"
+# define ERROR_2 "Duplicate numbers"
+# define ERROR_3 "Numbers greater than integer"
 # define INFO_1 "Info: It's already sorted"
 
 typedef struct s_node
@@ -57,6 +57,7 @@ void	both_swap(t_node **stack_a, t_node **stack_b);
 void	set_values(t_node *stack, int i);
 void	set_final_values(t_node *stack, t_node *first_target,
 			bool first_cheapest, int first_push_cost);
+void	free_all(t_node **stack);
 // ----- Stack three ------//
 void	sort_three(t_node **stack);
 void	sort_four(t_node **stack_a, t_node **stack_b);
@@ -75,6 +76,10 @@ t_node	*ischeapest(t_node	*stack);
 void	move_values(t_node **stack_a, t_node **stack_b);
 void	finish_rotation(t_node **stack, char stack_name);
 void	smallest_to_top(t_node *stack);
+t_node	*get_minimum_value(t_node	*stack_x);
+void	medianvalue(t_node *stack_a, t_node *stack_b);
+void	get_target_node(t_node *stack_a, t_node *stack_b);
+void	set_pricecost(t_node *stack_a, t_node *stack_b);
 
 // ----- Prints ----- //
 void	print_error(char *message);
@@ -85,4 +90,5 @@ size_t	ft_strlen_push_swap(char **argv);
 long	ft_atol(const char *nptr);
 t_node	*find_smallest(t_node *stack);
 int		find_min_index(t_node *stack);
+char	**ft_split(char const *s, char c);
 #endif

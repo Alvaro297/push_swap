@@ -26,17 +26,17 @@ void	sort_three(t_node **stack)
 	else if (a > b && b > c)
 	{
 		swap_change(stack, 'a');
-		reverse_rotate(stack, 'a');
+		reverse_rotate_swap(stack, 'a');
 	}
 	else if (a > b && b < c && a > c)
-		rotate(stack, 'a');
+		rotates_swap(stack, 'a');
 	else if (a < b && b > c && a < c)
 	{
 		swap_change(stack, 'a');
-		rotate(stack, 'a');
+		rotates_swap(stack, 'a');
 	}
 	else if (a < b && b > c && a > c)
-		reverse_rotate(stack, 'a');
+		reverse_rotate_swap(stack, 'a');
 }
 
 void	sort_four(t_node **stack_a, t_node **stack_b)
@@ -44,9 +44,9 @@ void	sort_four(t_node **stack_a, t_node **stack_b)
 	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
 		if (find_min_index(*stack_a) <= 2)
-			rotate(stack_a, 'a');
+			rotates_swap(stack_a, 'a');
 		else
-			reverse_rotate(stack_a, 'a');
+			reverse_rotate_swap(stack_a, 'a');
 	}
 	push_x(stack_b, stack_a, 'b');
 	sort_three(stack_a);
@@ -95,14 +95,13 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 	{
 		while (len_a -- > 3 && !already_sorted(*stack_a))
 			push_x(stack_b, stack_a, 'b');
+		if (len_a == 3)
+		sort_three(stack_a);
+		while (*stack_b != NULL)
+		{
+			init_values_stack(*stack_a, *stack_b);
+			move_values(stack_a, stack_b);
+		}
 	}
-	if (len_a == 3)
-		sort_three(&stack_a);
-	while (*stack_b != NULL)
-	{
-		init_values_stack(*stack_a, *stack_b);
-		move_values(stack_a, stack_b);
-	}
-	free(stack_b);
-	smallest_to_top(stack_a);
+	smallest_to_top(*stack_a);
 }

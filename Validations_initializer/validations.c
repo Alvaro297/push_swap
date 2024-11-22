@@ -18,10 +18,10 @@ void	are_all_numbers(int size, char **nbrs)
 	int	j;
 
 	i = 0;
-	while (i <= size)
+	while (i < size)
 	{
 		j = 0;
-		if (nbrs[i][j] == "-" || nbrs[i][j] == "+")
+		if (nbrs[i][j] == '-' || nbrs[i][j] == '+')
 			j++;
 		while (nbrs[i][j])
 		{
@@ -38,15 +38,13 @@ void	are_all_numbers(int size, char **nbrs)
 
 int	duplicate(t_node *a, int n)
 {
-	if (!a)
-		print_error (ERROR_4);
-	while (a != NULL)
+	while (a)
 	{
 		if (a->number == n)
-			return (0);
+			return (1);
 		a = a->next;
 	}
-	return (1);
+	return (0);
 }
 
 void	init_validations(t_node **a, char **nbrs)
@@ -63,32 +61,29 @@ void	init_validations(t_node **a, char **nbrs)
 		n = ft_atol(nbrs[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			print_error(ERROR_3);
-		if (duplicate(*a, (int)n))
+		if (duplicate(*a, (int)n) == 1)
 			print_error(ERROR_2);
 		append_node(a, (int)n);
-		i++;
+		++i;
 	}
 }
 
 bool	already_sorted(t_node *a)
 {
-	t_node	*tmp;
+    t_node	*tmp;
 
-	if (a == NULL || a->next == NULL)
-		return ;
-	tmp = a->next;
-	while (tmp->next != NULL)
-	{
-		if (a->number < tmp->number)
-		{
-			a = a->next;
-			tmp = tmp->next;
-		}
-		else
-			return (false);
-	}
-	print_info(INFO_1);
-	return (true);
+    if (a == NULL || a->next == NULL)
+        return (true);
+    tmp = a->next;
+    while (tmp != NULL)
+    {
+        if (a->number > tmp->number)
+            return (false);
+        a = a->next;
+        tmp = tmp->next;
+    }
+    print_info(INFO_1);
+    return (true);
 }
 
 int	ft_stack_len(t_node *head)

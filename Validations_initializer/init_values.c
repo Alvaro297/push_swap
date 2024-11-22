@@ -89,8 +89,8 @@ void	set_pricecost(t_node *stack_a, t_node *stack_b)
 	int	len_a;
 	int	len_b;
 
-	len_a = stack_len(stack_a);
-	len_b = stack_len(stack_b);
+	len_a = ft_stack_len(stack_a);
+	len_b = ft_stack_len(stack_b);
 	while (stack_b)
 	{
 		stack_b->push_cost = stack_b->index;
