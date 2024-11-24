@@ -70,20 +70,20 @@ void	init_validations(t_node **a, char **nbrs)
 
 bool	already_sorted(t_node *a)
 {
-    t_node	*tmp;
+	t_node	*tmp;
 
-    if (a == NULL || a->next == NULL)
-        return (true);
-    tmp = a->next;
-    while (tmp != NULL)
-    {
-        if (a->number > tmp->number)
-            return (false);
-        a = a->next;
-        tmp = tmp->next;
-    }
-    print_info(INFO_1);
-    return (true);
+	if (a == NULL || a->next == NULL)
+		return (true);
+	tmp = a->next;
+	while (tmp != NULL)
+	{
+		ft_printf("a->number: %d, tmp->number: %d\n", a->number, tmp->number);
+		if (a->number > tmp->number)
+			return (false);
+		a = a->next;
+		tmp = tmp->next;
+	}
+	return (true);
 }
 
 int	ft_stack_len(t_node *head)

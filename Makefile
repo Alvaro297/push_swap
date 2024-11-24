@@ -17,9 +17,9 @@ SRC = main.c \
 OBJ = $(SRC:.c=.o)
 TARGET = push_swap
 
-LIBFT_DIR = ./libft_entrega
+LIBFT_DIR = ./libft_pas
 LIBFT = $(LIBFT_DIR)/libft.a
-FT_PRINTF_DIR = ./ft_printf
+FT_PRINTF_DIR = ./ft_printf_git
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 all: $(TARGET)

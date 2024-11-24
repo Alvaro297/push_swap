@@ -21,5 +21,4 @@ void	print_error(char *message)
 void	print_info(char *message)
 {
 	ft_printf("\033[1;33mInfo: %s\033[0m\n", message);
-	exit(1);
 }

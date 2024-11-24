@@ -14,14 +14,25 @@
 
 void	push_x(t_node **stack_src, t_node **stack_dest, char c)
 {
-	t_node	*tmp;
+	t_node	*node_to_push;
 
-	if (stack_src && *stack_src)
+	if (NULL == *stack_src)
+		return ;
+	node_to_push = *stack_src;
+	*stack_src = (*stack_src)->next;
+	if (*stack_src)
+		(*stack_src)->prev = NULL;
+	node_to_push->prev = NULL;
+	if (NULL == *stack_dest)
 	{
-		tmp = *stack_src;
-		*stack_src = (*stack_src)->next;
-		tmp->next = *stack_dest;
-		*stack_dest = tmp;
+		*stack_dest = node_to_push;
+		node_to_push->next = NULL;
+	}
+	else
+	{
+		node_to_push->next = *stack_dest;
+		node_to_push->next->prev = node_to_push;
+		*stack_dest = node_to_push;
 	}
 	set_current_position(*stack_dest, *stack_src);
 	ft_printf("p%c\n", c);

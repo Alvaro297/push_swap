@@ -32,6 +32,8 @@ void	push_swap(char **argv)
 			swap_change(&a, 'a');
 		else
 			sort_stack(&a, &b);
+		if (already_sorted(a))
+			print_info(INFO_1);
 	}
 	free_all(&a);
 }
@@ -44,6 +46,7 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 			argv = ft_split(*argv, ' ');
 		push_swap(argv);
+
 	}
 	else
 		print_error(ERROR_0);

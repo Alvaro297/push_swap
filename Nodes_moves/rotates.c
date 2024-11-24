@@ -33,7 +33,9 @@ void	rotates_swap(t_node **stack, char c)
 		current = current->next;
 	}
 	current->number = first_number;
-	set_final_values(current, first_target, first_cheapest, first_push_cost);
+	current->target = first_target;
+	current->cheapest = first_cheapest;
+	current->push_cost = first_push_cost;
 	if (c != 'r')
 		ft_printf("r%c\n", c);
 }

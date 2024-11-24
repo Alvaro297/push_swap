@@ -29,6 +29,7 @@ void	set_cheapest(t_node *b)
 		}
 		b = b->next;
 	}
+
 	best_match_node->cheapest = true;
 }
 

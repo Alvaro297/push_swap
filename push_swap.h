@@ -13,8 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft_entrega/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "libft_pas/libft.h"
+# include "ft_printf_git/ft_printf.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -74,7 +74,8 @@ void	init_values_stack(t_node *stack_a, t_node *stack_b);
 void	set_cheapest(t_node *stack);
 t_node	*ischeapest(t_node	*stack);
 void	move_values(t_node **stack_a, t_node **stack_b);
-void	finish_rotation(t_node **stack, char stack_name);
+void	finish_rotation(t_node **stack_a, t_node **stack_b, char stack_name);
+void	finish_rotation2(t_node **stack, t_node **stack_b, t_node *top_node, char stack_name);
 void	smallest_to_top(t_node *stack);
 t_node	*get_minimum_value(t_node	*stack_x);
 void	medianvalue(t_node *stack_a, t_node *stack_b);

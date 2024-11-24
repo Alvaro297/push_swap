@@ -48,7 +48,7 @@ void	get_target_node(t_node *stack_a, t_node *stack_b)
 	{
 		i = LONG_MAX;
 		current = stack_a;
-		while (current != NULL)
+		while (current)
 		{
 			if ((current -> number > stack_b -> number)
 				&& (i > current -> number - stack_b -> number))

@@ -41,16 +41,16 @@ void	sort_three(t_node **stack)
 
 void	sort_four(t_node **stack_a, t_node **stack_b)
 {
-	while ((*stack_a)->index != find_min_index(*stack_a))
+	while (find_min_index(*stack_a) != 0)
 	{
 		if (find_min_index(*stack_a) <= 2)
 			rotates_swap(stack_a, 'a');
 		else
 			reverse_rotate_swap(stack_a, 'a');
 	}
-	push_x(stack_b, stack_a, 'b');
+	push_x(stack_a, stack_b, 'b');
 	sort_three(stack_a);
-	push_x(stack_a, stack_b, 'a');
+	push_x(stack_b, stack_a, 'a');
 }
 
 void	sort_five(t_node **stack_a, t_node **stack_b)
@@ -62,7 +62,7 @@ void	sort_five(t_node **stack_a, t_node **stack_b)
 		else
 			reverse_rotate_swap(stack_a, 'a');
 	}
-	push_x(stack_b, stack_a, 'b');
+	push_x(stack_a, stack_b, 'b');
 	while ((*stack_a)->index != find_min_index(*stack_a))
 	{
 		if (find_min_index(*stack_a) <= 2)
@@ -70,10 +70,10 @@ void	sort_five(t_node **stack_a, t_node **stack_b)
 		else
 			reverse_rotate_swap(stack_a, 'a');
 	}
-	push_x(stack_b, stack_a, 'b');
+	push_x(stack_a, stack_b, 'b');
 	sort_three(stack_a);
-	push_x(stack_a, stack_b, 'a');
-	push_x(stack_a, stack_b, 'a');
+	push_x(stack_b, stack_a, 'a');
+	push_x(stack_b, stack_a, 'a');
 }
 
 void	sort_stack_few(t_node **stack_a, t_node **stack_b, int len_a)
@@ -93,11 +93,12 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 		sort_stack_few(stack_a, stack_b, len_a);
 	else
 	{
-		while (len_a -- > 3 && !already_sorted(*stack_a))
-			push_x(stack_b, stack_a, 'b');
-		if (len_a == 3)
-		sort_three(stack_a);
-		while (*stack_b != NULL)
+		while (len_a-- > 3 && !already_sorted(*stack_a))
+			push_x(stack_a, stack_b, 'b');
+		ft_printf("len: %i", len_a);
+		if (len_a == 2)
+			sort_three(stack_a);
+		while (*stack_b)
 		{
 			init_values_stack(*stack_a, *stack_b);
 			move_values(stack_a, stack_b);
