@@ -15,6 +15,7 @@
 
 # include "libft_pas/libft.h"
 # include "ft_printf_git/ft_printf.h"
+# include "GNL_github/get_next_line_bonus.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>

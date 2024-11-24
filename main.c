@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_node *stack, char stack_name)
+static void	print_stack(t_node *stack, char stack_name)
 {
     ft_printf("Stack %c details:\n", stack_name);
     while (stack != NULL)
