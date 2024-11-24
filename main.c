@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+void	print_stack(t_node *stack, char stack_name)
+{
+    ft_printf("Stack %c details:\n", stack_name);
+    while (stack != NULL)
+    {
+        ft_printf("number: %d, index: %d, push_cost: %d, above_median: %d, cheapest: %d\n",
+            stack->number, stack->index, stack->push_cost, stack->above_median, stack->cheapest);
+        stack = stack->next;
+    }
+}
+
 void	push_swap(char **argv)
 {
 	t_node	*a;
@@ -32,8 +43,7 @@ void	push_swap(char **argv)
 			swap_change(&a, 'a');
 		else
 			sort_stack(&a, &b);
-		if (already_sorted(a))
-			print_info(INFO_1);
+		print_stack(a, 'a');
 	}
 	free_all(&a);
 }

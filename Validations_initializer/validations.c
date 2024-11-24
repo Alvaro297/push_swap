@@ -77,7 +77,6 @@ bool	already_sorted(t_node *a)
 	tmp = a->next;
 	while (tmp != NULL)
 	{
-		ft_printf("a->number: %d, tmp->number: %d\n", a->number, tmp->number);
 		if (a->number > tmp->number)
 			return (false);
 		a = a->next;

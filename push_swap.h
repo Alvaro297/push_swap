@@ -26,7 +26,7 @@
 # define ERROR_1 "Argument is not an integer"
 # define ERROR_2 "Duplicate numbers"
 # define ERROR_3 "Numbers greater than integer"
-# define INFO_1 "Info: It's already sorted"
+# define INFO_1 "It's already sorted"
 
 typedef struct s_node
 {
