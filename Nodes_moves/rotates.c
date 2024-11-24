@@ -44,7 +44,7 @@ void	rotates_both(t_node **stack_a, t_node **stack_b)
 {
 	rotates_swap(stack_a, 'r');
 	rotates_swap(stack_b, 'r');
-	ft_printf("rr");
+	ft_printf("rr\n");
 }
 
 void	reverse_rotate_swap(t_node **stack, char c)
@@ -79,5 +79,5 @@ void	reverse_rotate_both(t_node **stack_a, t_node **stack_b)
 {
 	reverse_rotate_swap(stack_a, 'r');
 	reverse_rotate_swap(stack_b, 'r');
-	ft_printf("rr");
+	ft_printf("rrr\n");
 }
