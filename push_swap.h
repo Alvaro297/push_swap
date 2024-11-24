@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft_pas/libft.h"
+# include "libft_entrega/libft.h"
 # include "ft_printf_git/ft_printf.h"
 # include "GNL_github/get_next_line_bonus.h"
 # include <stdarg.h>
