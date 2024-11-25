@@ -29,8 +29,8 @@ t_node	*ischeapest(t_node	*stack)
 void	move_values(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*cheapest;
-	int		cheapest_number;
-	int		target_number;
+	long	cheapest_number;
+	long	target_number;
 
 	cheapest = ischeapest(*stack_b);
 	cheapest_number = cheapest->number;
@@ -71,7 +71,8 @@ void	finish_rotation(t_node **stack_a, t_node **stack_b, char stack_name)
 	finish_rotation2(stack, stack_b, top_node, stack_name);
 }
 
-void	finish_rotation2(t_node **stack, t_node **stack_b, t_node *top_node, char stack_name)
+void	finish_rotation2(t_node **stack, t_node **stack_b,
+			t_node *top_node, char stack_name)
 {
 	while ((*stack)->number != top_node->number)
 	{

@@ -12,15 +12,17 @@
 
 #include "push_swap.h"
 
-static void	print_stack(t_node *stack, char stack_name)
+void	free_split(char **split)
 {
-    ft_printf("Stack %c details:\n", stack_name);
-    while (stack != NULL)
-    {
-        ft_printf("number: %d, index: %d, push_cost: %d, above_median: %d, cheapest: %d\n",
-            stack->number, stack->index, stack->push_cost, stack->above_median, stack->cheapest);
-        stack = stack->next;
-    }
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 
 void	push_swap(char **argv)
@@ -32,20 +34,17 @@ void	push_swap(char **argv)
 	a = NULL;
 	b = NULL;
 	init_validations(&a, argv);
-	if (already_sorted(a))
-		print_info(INFO_1);
-	else
+	size_stack = ft_stack_len(a);
+	if (!already_sorted(a))
 	{
-		size_stack = ft_stack_len(a);
 		if (size_stack == 3)
 			sort_three(&a);
 		else if (size_stack == 2)
 			swap_change(&a, 'a');
 		else
 			sort_stack(&a, &b);
-		print_stack(a, 'a');
+		free_all(&a);
 	}
-	free_all(&a);
 }
 
 int	main(int argc, char **argv)
@@ -56,9 +55,10 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 			argv = ft_split(*argv, ' ');
 		push_swap(argv);
-
+		if (argc == 2)
+			free_split(argv);
 	}
 	else
-		print_error(ERROR_0);
+		ft_printf("Error\n");
 	return (0);
 }

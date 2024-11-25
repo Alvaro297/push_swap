@@ -12,13 +12,8 @@
 
 #include "../push_swap.h"
 
-void	print_error(char *message)
+void	print_error(void)
 {
-	ft_printf("\033[1;31mError: %s\033[0m\n", message);
+	ft_printf("Error\n");
 	exit(1);
-}
-
-void	print_info(char *message)
-{
-	ft_printf("\033[1;33mInfo: %s\033[0m\n", message);
 }

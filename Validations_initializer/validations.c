@@ -26,10 +26,7 @@ void	are_all_numbers(int size, char **nbrs)
 		while (nbrs[i][j])
 		{
 			if (ft_isdigit(nbrs[i][j]) == 0)
-			{
-				print_error(ERROR_1);
-				exit(1);
-			}
+				print_error();
 			j++;
 		}
 		i++;
@@ -60,9 +57,9 @@ void	init_validations(t_node **a, char **nbrs)
 	{
 		n = ft_atol(nbrs[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			print_error(ERROR_3);
+			print_error();
 		if (duplicate(*a, (int)n) == 1)
-			print_error(ERROR_2);
+			print_error();
 		append_node(a, (int)n);
 		++i;
 	}

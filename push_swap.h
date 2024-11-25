@@ -14,8 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft_entrega/libft.h"
-# include "ft_printf_git/ft_printf.h"
-# include "GNL_github/get_next_line_bonus.h"
+# include "ft_printf/ft_printf.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -23,15 +22,11 @@
 # include <stdbool.h>
 # include <unistd.h>
 
-# define ERROR_0 "Missing arguments"
-# define ERROR_1 "Argument is not an integer"
-# define ERROR_2 "Duplicate numbers"
-# define ERROR_3 "Numbers greater than integer"
 # define INFO_1 "It's already sorted"
 
 typedef struct s_node
 {
-	int				number;
+	long			number;
 	int				index;
 	int				push_cost;
 	bool			above_median;
@@ -44,7 +39,6 @@ typedef struct s_node
 // ----- Push_swap -----//
 int		main(int argc, char **argv);
 void	push_swap(char **argv);
-
 // ----- Append & modify ------//
 void	append_node(t_node **head, int n);
 void	push_x(t_node **stack_dest, t_node **stack_src, char c);
@@ -76,7 +70,8 @@ void	set_cheapest(t_node *stack);
 t_node	*ischeapest(t_node	*stack);
 void	move_values(t_node **stack_a, t_node **stack_b);
 void	finish_rotation(t_node **stack_a, t_node **stack_b, char stack_name);
-void	finish_rotation2(t_node **stack, t_node **stack_b, t_node *top_node, char stack_name);
+void	finish_rotation2(t_node **stack, t_node **stack_b,
+			t_node *top_node, char stack_name);
 void	smallest_to_top(t_node *stack);
 t_node	*get_minimum_value(t_node	*stack_x);
 void	medianvalue(t_node *stack_a, t_node *stack_b);
@@ -84,8 +79,7 @@ void	get_target_node(t_node *stack_a, t_node *stack_b);
 void	set_pricecost(t_node *stack_a, t_node *stack_b);
 
 // ----- Prints ----- //
-void	print_error(char *message);
-void	print_info(char *message);
+void	print_error(void);
 
 // ----- Utils ----- //
 size_t	ft_strlen_push_swap(char **argv);

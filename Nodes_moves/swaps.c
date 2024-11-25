@@ -15,7 +15,7 @@
 void	swap_change(t_node **stack, char c)
 {
 	t_node	*tmp_target;
-	int		tmp_number;
+	long	tmp_number;
 	bool	tmp_cheapest;
 	int		tmp_push_cost;
 

@@ -16,7 +16,7 @@ void	rotates_swap(t_node **stack, char c)
 {
 	t_node	*current;
 	t_node	*first_target;
-	int		first_number;
+	long	first_number;
 	bool	first_cheapest;
 	int		first_push_cost;
 
@@ -51,7 +51,7 @@ void	reverse_rotate_swap(t_node **stack, char c)
 {
 	t_node	*current;
 	t_node	*first_target;
-	int		first_number;
+	long	first_number;
 	bool	first_cheapest;
 	int		first_push_cost;
 
