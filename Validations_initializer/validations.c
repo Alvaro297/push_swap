@@ -62,7 +62,8 @@ void	init_validations(t_node **a, char **nbrs, int argc)
 		n = ft_atol(nbrs[i]);
 		if (n > INT_MAX || n < INT_MIN)
 		{
-			free_split(nbrs);
+			if (argc == 2)
+				free_split(nbrs);
 			print_error(a);
 		}
 		if (duplicate(*a, (int)n) == 1)

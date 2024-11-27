@@ -87,5 +87,4 @@ size_t	ft_strlen_push_swap(char **argv);
 long	ft_atol(const char *nptr);
 t_node	*find_smallest(t_node *stack);
 int		find_min_index(t_node *stack);
-char	**ft_split(char const *s, char c);
 #endif
