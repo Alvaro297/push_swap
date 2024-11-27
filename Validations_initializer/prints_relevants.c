@@ -12,8 +12,11 @@
 
 #include "../push_swap.h"
 
-void	print_error(void)
+void	print_error(t_node **a)
 {
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
+	if (a == NULL)
+		exit(1);
+	free_all(a);
 	exit(1);
 }

@@ -13,8 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft_entrega/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "libft_push_swap/libft.h"
+# include "ft_printf_pushswap/ft_printf.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -38,7 +38,8 @@ typedef struct s_node
 
 // ----- Push_swap -----//
 int		main(int argc, char **argv);
-void	push_swap(char **argv);
+void	push_swap(char **argv, int argc);
+void	free_split(char **split);
 // ----- Append & modify ------//
 void	append_node(t_node **head, int n);
 void	push_x(t_node **stack_dest, t_node **stack_src, char c);
@@ -60,10 +61,10 @@ void	sort_five(t_node **stack_a, t_node **stack_b);
 void	sort_stack_few(t_node **stack_a, t_node **stack_b, int len_a);
 void	sort_stack(t_node **stack_a, t_node **stack_b);
 // ----- Validations & Initializer ----- //
-void	init_validations(t_node **a, char **nbrs);
+void	init_validations(t_node **a, char **nbrs, int argc);
 bool	already_sorted(t_node *a);
 int		duplicate(t_node *a, int n);
-void	are_all_numbers(int size, char **nbrs);
+void	are_all_numbers(int size, char **nbrs, int argc);
 int		ft_stack_len(t_node *head);
 void	init_values_stack(t_node *stack_a, t_node *stack_b);
 void	set_cheapest(t_node *stack);
@@ -79,7 +80,7 @@ void	get_target_node(t_node *stack_a, t_node *stack_b);
 void	set_pricecost(t_node *stack_a, t_node *stack_b);
 
 // ----- Prints ----- //
-void	print_error(void);
+void	print_error(t_node **a);
 
 // ----- Utils ----- //
 size_t	ft_strlen_push_swap(char **argv);

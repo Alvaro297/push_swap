@@ -25,7 +25,7 @@ void	free_split(char **split)
 	free(split);
 }
 
-void	push_swap(char **argv)
+void	push_swap(char **argv, int argc)
 {
 	t_node	*a;
 	t_node	*b;
@@ -33,7 +33,7 @@ void	push_swap(char **argv)
 
 	a = NULL;
 	b = NULL;
-	init_validations(&a, argv);
+	init_validations(&a, argv, argc);
 	size_stack = ft_stack_len(a);
 	if (!already_sorted(a))
 	{
@@ -43,8 +43,8 @@ void	push_swap(char **argv)
 			swap_change(&a, 'a');
 		else
 			sort_stack(&a, &b);
-		free_all(&a);
 	}
+	free_all(&a);
 }
 
 int	main(int argc, char **argv)
@@ -54,11 +54,9 @@ int	main(int argc, char **argv)
 		argv++;
 		if (argc == 2)
 			argv = ft_split(*argv, ' ');
-		push_swap(argv);
+		push_swap(argv, argc);
 		if (argc == 2)
 			free_split(argv);
 	}
-	else
-		ft_printf("Error\n");
 	return (0);
 }

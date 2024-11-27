@@ -1,4 +1,4 @@
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRC = main.c \
 	  Nodes_moves/append_modifiy.c \
@@ -17,9 +17,9 @@ SRC = main.c \
 OBJ = $(SRC:.c=.o)
 TARGET = push_swap
 
-LIBFT_DIR = ./libft_entrega
+LIBFT_DIR = ./libft_push_swap
 LIBFT = $(LIBFT_DIR)/libft.a
-FT_PRINTF_DIR = ./ft_printf
+FT_PRINTF_DIR = ./ft_printf_pushswap
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 all: $(TARGET)

@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	are_all_numbers(int size, char **nbrs)
+void	are_all_numbers(int size, char **nbrs, int argc)
 {
 	int	i;
 	int	j;
@@ -26,7 +26,11 @@ void	are_all_numbers(int size, char **nbrs)
 		while (nbrs[i][j])
 		{
 			if (ft_isdigit(nbrs[i][j]) == 0)
-				print_error();
+			{
+				if (argc == 2)
+					free_split(nbrs);
+				print_error(NULL);
+			}
 			j++;
 		}
 		i++;
@@ -44,7 +48,7 @@ int	duplicate(t_node *a, int n)
 	return (0);
 }
 
-void	init_validations(t_node **a, char **nbrs)
+void	init_validations(t_node **a, char **nbrs, int argc)
 {
 	size_t	len;
 	long	n;
@@ -52,14 +56,17 @@ void	init_validations(t_node **a, char **nbrs)
 
 	i = 0;
 	len = ft_strlen_push_swap(nbrs);
-	are_all_numbers(len, nbrs);
+	are_all_numbers(len, nbrs, argc);
 	while (nbrs[i])
 	{
 		n = ft_atol(nbrs[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			print_error();
+		{
+			free_split(nbrs);
+			print_error(a);
+		}
 		if (duplicate(*a, (int)n) == 1)
-			print_error();
+			print_error(a);
 		append_node(a, (int)n);
 		++i;
 	}
