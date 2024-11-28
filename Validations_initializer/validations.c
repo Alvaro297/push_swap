@@ -67,7 +67,11 @@ void	init_validations(t_node **a, char **nbrs, int argc)
 			print_error(a);
 		}
 		if (duplicate(*a, (int)n) == 1)
+		{
+			if (argc == 2)
+				free_split(nbrs);
 			print_error(a);
+		}
 		append_node(a, (int)n);
 		++i;
 	}
