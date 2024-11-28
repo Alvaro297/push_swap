@@ -78,6 +78,7 @@ t_node	*get_minimum_value(t_node	*stack_x);
 void	medianvalue(t_node *stack_a, t_node *stack_b);
 void	get_target_node(t_node *stack_a, t_node *stack_b);
 void	set_pricecost(t_node *stack_a, t_node *stack_b);
+void	not_only_simbols(int argc, char c, char **nbrs);
 
 // ----- Prints ----- //
 void	print_error(t_node **a);

@@ -33,6 +33,11 @@ void	push_swap(char **argv, int argc)
 
 	a = NULL;
 	b = NULL;
+	if (argv[0] == NULL )
+	{
+		free_split(argv);
+		print_error(&a);
+	}
 	init_validations(&a, argv, argc);
 	size_stack = ft_stack_len(a);
 	if (!already_sorted(a))

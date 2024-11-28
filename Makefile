@@ -13,7 +13,8 @@ SRC = main.c \
       Validations_initializer/move_nodes.c \
       Validations_initializer/move_values.c \
       Validations_initializer/prints_relevants.c \
-      Validations_initializer/validations.c
+      Validations_initializer/validations.c \
+	  Validations_initializer/not_only_simbols.c
 OBJ = $(SRC:.c=.o)
 TARGET = push_swap
 

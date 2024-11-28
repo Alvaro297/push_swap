@@ -22,7 +22,10 @@ void	are_all_numbers(int size, char **nbrs, int argc)
 	{
 		j = 0;
 		if (nbrs[i][j] == '-' || nbrs[i][j] == '+')
+		{
 			j++;
+			not_only_simbols(argc, nbrs[i][j], nbrs);
+		}
 		while (nbrs[i][j])
 		{
 			if (ft_isdigit(nbrs[i][j]) == 0)
