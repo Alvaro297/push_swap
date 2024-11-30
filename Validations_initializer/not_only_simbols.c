@@ -15,9 +15,9 @@
 void	not_only_simbols(int argc, char c, char **nbrs)
 {
 	if (c == '\0')
-		{
-			if (argc == 2)
-				free_split(nbrs);
-			print_error(NULL);
-		}
+	{
+		if (argc == 2)
+			free_split(nbrs);
+		print_error(NULL);
+	}
 }
