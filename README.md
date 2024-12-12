@@ -5,7 +5,7 @@ The project involves designing an efficient sorting algorithm and implementing i
 
 </br>
 
-<img src="./images/PUSH SWAP.png">
+<img src="./PUSH SWAP.png">
 
 </br>
 
